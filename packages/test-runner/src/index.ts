@@ -17,13 +17,13 @@ interface Test {
 }
 
 const tests: Test[] = [];
-let currentDescribe = '';
+let currentDescribe = "";
 let registeredApp: React.ComponentType | null = null;
 
 export function describe(name: string, fn: () => void): void {
   currentDescribe = name;
   fn();
-  currentDescribe = '';
+  currentDescribe = "";
 }
 
 export function it(name: string, fn: TestFn): void {
@@ -37,7 +37,7 @@ export const expect = (actual: any) => ({
   toBe: (expected: any) => {
     if (actual !== expected) {
       throw new Error(
-        `Expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`
+        `Expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`,
       );
     }
   },
@@ -126,12 +126,12 @@ export async function act(callback: () => void | Promise<void>): Promise<void> {
 
   // Wait for React to flush updates
   // React 18's automatic batching requires multiple ticks
-  await new Promise(resolve => setTimeout(resolve, 0));
-  await new Promise(resolve => setTimeout(resolve, 0));
-  await new Promise(resolve => setTimeout(resolve, 0));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  await new Promise((resolve) => setTimeout(resolve, 0));
 
   // Add a small delay to ensure DOM updates are complete
-  await new Promise(resolve => setTimeout(resolve, 10));
+  await new Promise((resolve) => setTimeout(resolve, 10));
 }
 
 /**
@@ -151,7 +151,7 @@ export async function act(callback: () => void | Promise<void>): Promise<void> {
  */
 export async function waitFor(
   callback: () => void | Promise<void>,
-  options: { timeout?: number; interval?: number } = {}
+  options: { timeout?: number; interval?: number } = {},
 ): Promise<void> {
   const { timeout = 5000, interval = 50 } = options;
   const startTime = Date.now();
@@ -166,7 +166,7 @@ export async function waitFor(
       return; // Success!
     } catch (e) {
       lastError = e as Error;
-      await new Promise(resolve => setTimeout(resolve, interval));
+      await new Promise((resolve) => setTimeout(resolve, interval));
     }
   }
 
@@ -200,11 +200,11 @@ export function registerApp(App: React.ComponentType): void {
  */
 export function render(): HTMLElement {
   if (!registeredApp) {
-    throw new Error('No App registered. Call registerApp(App) first.');
+    throw new Error("No App registered. Call registerApp(App) first.");
   }
 
-  const container = document.createElement('div');
-  container.id = 'test-root';
+  const container = document.createElement("div");
+  container.id = "test-root";
   document.body.appendChild(container);
 
   const root = ReactDOM.createRoot(container);
@@ -230,7 +230,7 @@ export function render(): HTMLElement {
  * });
  */
 export function cleanup(): void {
-  const container = document.getElementById('test-root');
+  const container = document.getElementById("test-root");
   if (container) {
     ReactDOM.unmountComponentAtNode(container);
     container.remove();
@@ -252,12 +252,12 @@ export function cleanup(): void {
  */
 export async function runTestsInVM(bundledCode: string): Promise<TestResult> {
   // Check if we're in Node.js environment
-  if (typeof process === 'undefined' || typeof require === 'undefined') {
-    throw new Error('runTestsInVM can only be used in Node.js environment');
+  if (typeof process === "undefined" || typeof require === "undefined") {
+    throw new Error("runTestsInVM can only be used in Node.js environment");
   }
 
   // Dynamically import vm module (Node.js only)
-  const vm = require('vm') as typeof import('vm');
+  const vm = require("vm") as typeof import("vm");
 
   // Create a sandbox with test runner globals
   const sandbox: any = {
@@ -268,14 +268,14 @@ export async function runTestsInVM(bundledCode: string): Promise<TestResult> {
     clearInterval,
     Promise,
     // Test results collector
-    __testResults: { tests: [], describe: '', passed: true },
+    __testResults: { tests: [], describe: "", passed: true },
   };
 
   // Add test-runner API to sandbox
   sandbox.describe = (name: string, fn: () => void) => {
     sandbox.__testResults.describe = name;
     fn();
-    sandbox.__testResults.describe = '';
+    sandbox.__testResults.describe = "";
   };
 
   sandbox.it = (name: string, fn: TestFn) => {
@@ -301,11 +301,11 @@ export async function runTestsInVM(bundledCode: string): Promise<TestResult> {
   // Inject React and ReactDOM (must be provided by caller)
   // Note: These should be passed from the environment running the VM
   try {
-    sandbox.React = require('react');
-    sandbox.ReactDOM = require('react-dom/client');
+    sandbox.React = require("react");
+    sandbox.ReactDOM = require("react-dom/client");
   } catch (error) {
     // React/ReactDOM not available - will fail if render() is called
-    console.warn('React/ReactDOM not available in VM context');
+    console.warn("React/ReactDOM not available in VM context");
   }
 
   // Create VM context
@@ -322,7 +322,7 @@ export async function runTestsInVM(bundledCode: string): Promise<TestResult> {
       passed: false,
       results: [
         {
-          name: 'Code execution',
+          name: "Code execution",
           passed: false,
           error: `Failed to execute code: ${error.message}`,
         },

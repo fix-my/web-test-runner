@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SeoJaeWan/web-test-runner.git",
+    "url": "https://github.com/fix-my/web-test-runner.git",
     "directory": "packages/test-utils"
   },
   "scripts": {
