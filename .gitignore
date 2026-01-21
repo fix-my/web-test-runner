@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# Testing
+coverage/
+
+# Environment files
+.env
+.env.local
+
+# Misc
+.DS_Store
+
+# Claude Code configuration
+.claude/

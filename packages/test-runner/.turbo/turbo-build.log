@@ -1,0 +1,5 @@
+ WARN  Issue while reading "C:\Users\sjw73\Desktop\dev\fix-my\web-test-runner\.npmrc". Failed to replace env in config: ${NPM_TOKEN}
+
+> @fixmyhome/test-runner@0.1.0 build C:\Users\sjw73\Desktop\dev\fix-my\web-test-runner\packages\test-runner
+> tsc
+
