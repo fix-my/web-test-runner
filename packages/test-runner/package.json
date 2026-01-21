@@ -1,15 +1,15 @@
 {
-  "name": "@fixmyhome/test-runner",
+  "name": "@fix-my/test-runner",
   "version": "0.1.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": ["dist"],
   "publishConfig": {
-    "@fixmyhome:registry": "https://npm.pkg.github.com"
+    "@fix-my:registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sj0724/fix_my_homepage.git",
+    "url": "https://github.com/SeoJaeWan/web-test-runner.git",
     "directory": "packages/test-runner"
   },
   "scripts": {

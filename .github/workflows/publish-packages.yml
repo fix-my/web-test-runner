@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: '18'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@fixmyhome'
+          scope: '@fix-my'
 
       - name: Install dependencies
         run: pnpm install
