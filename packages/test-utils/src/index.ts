@@ -1,11 +1,11 @@
 /**
- * @fixmyhome/test-utils
+ * @fix-my/test-utils
  * Validation utilities for problem authoring
  */
 
 import { readFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { join, relative } from 'path';
-import { runTestsInVM, TestResult } from '@fixmyhome/test-runner';
+import { runTestsInVM, TestResult } from '@fix-my/test-runner';
 
 /**
  * Recursively lists all files in a directory

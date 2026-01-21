@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "description": "웹 테스트 러너 패키지 for Fix My Homepage",
+  "packageManager": "pnpm@10.28.0",
   "scripts": {
     "build": "turbo run build",
     "publish-packages": "changeset publish"

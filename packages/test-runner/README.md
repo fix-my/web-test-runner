@@ -1,4 +1,4 @@
-# @fixmyhome/test-runner
+# @fix-my/test-runner
 
 Jest 호환 API를 제공하는 경량 테스트 러너 패키지입니다.
 
@@ -12,7 +12,7 @@ Jest 호환 API를 제공하는 경량 테스트 러너 패키지입니다.
 ## 사용 예시
 
 ```typescript
-import { describe, it, expect, runTests } from '@fixmyhome/test-runner';
+import { describe, it, expect, runTests } from '@fix-my/test-runner';
 
 describe('Button Component', () => {
   it('should be clickable', () => {

@@ -1,5 +1,5 @@
 /**
- * @fixmyhome/test-runner
+ * @fix-my/test-runner
  * Jest 호환 API 테스트 러너
  */
 
