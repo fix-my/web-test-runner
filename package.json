@@ -1,0 +1,23 @@
+{
+  "name": "fix-my-homepage-test-runner",
+  "private": true,
+  "version": "0.0.0",
+  "description": "웹 테스트 러너 패키지 for Fix My Homepage",
+  "scripts": {
+    "build": "turbo run build",
+    "publish-packages": "changeset publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SeoJaeWan/web-test-runner.git"
+  },
+  "author": "SeoJaeWan",
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.8",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "turbo": "^1.11.0",
+    "typescript": "^5.3.3"
+  }
+}

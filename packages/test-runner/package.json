@@ -1,0 +1,29 @@
+{
+  "name": "@fixmyhome/test-runner",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "publishConfig": {
+    "@fixmyhome:registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sj0724/fix_my_homepage.git",
+    "directory": "packages/test-runner"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "pnpm build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.47",
+    "typescript": "^5.3.3"
+  }
+}
