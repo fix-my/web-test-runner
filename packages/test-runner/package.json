@@ -5,7 +5,8 @@
   "types": "./dist/index.d.ts",
   "files": ["dist"],
   "publishConfig": {
-    "@fix-my:registry": "https://npm.pkg.github.com"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "repository": {
     "type": "git",
